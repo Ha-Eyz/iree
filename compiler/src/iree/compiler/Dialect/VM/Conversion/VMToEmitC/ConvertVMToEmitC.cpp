@@ -5047,6 +5047,8 @@ void populateVMToEmitCPatterns(ConversionTarget &conversionTarget,
   ADD_GENERIC_PATTERN(IREE::VM::BitcastI32F32Op, "vm_bitcast_i32f32");
   ADD_GENERIC_PATTERN(IREE::VM::CastF32SI32Op, "vm_cast_f32si32");
   ADD_GENERIC_PATTERN(IREE::VM::CastF32SI64Op, "vm_cast_f32si64");
+  ADD_GENERIC_PATTERN(IREE::VM::CastF32UI8Op, "vm_cast_f32ui8");
+  ADD_GENERIC_PATTERN(IREE::VM::CastF32UI16Op, "vm_cast_f32ui16");
   ADD_GENERIC_PATTERN(IREE::VM::CastF32UI32Op, "vm_cast_f32ui32");
   ADD_GENERIC_PATTERN(IREE::VM::CastF32UI64Op, "vm_cast_f32ui64");
   ADD_GENERIC_PATTERN(IREE::VM::CastSI32F32Op, "vm_cast_si32f32");

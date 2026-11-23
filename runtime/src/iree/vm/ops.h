@@ -611,6 +611,12 @@ static inline int32_t vm_cast_f32si32(float operand) {
 static inline int64_t vm_cast_f32si64(float operand) {
   return (int64_t)llroundf(operand);
 }
+static inline int32_t vm_cast_f32ui8(float operand) {
+  return (uint32_t)llroundf(operand);
+}
+static inline int32_t vm_cast_f32ui16(float operand) {
+  return (uint32_t)llroundf(operand);
+}
 static inline int32_t vm_cast_f32ui32(float operand) {
   return (uint32_t)llroundf(operand);
 }

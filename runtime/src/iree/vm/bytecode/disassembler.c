@@ -2236,6 +2236,26 @@ static iree_status_t iree_vm_bytecode_disassemble_op_impl(
       IREE_VM_ISA_EMIT_OPTIONAL_VALUE_F32(regs->i32[operand_reg]);
       break;
     }
+    IREE_VM_ISA_EMIT_OP(EXT_F32, CastF32UI8) {
+      IREE_VM_ISA_DECODE_OPERAND_F32(operand_reg);
+      IREE_VM_ISA_DECODE_RESULT_I32(result_reg);
+      IREE_VM_ISA_EMIT_I32_REG_NAME(result_reg);
+      IREE_RETURN_IF_ERROR(
+          iree_string_builder_append_cstring(b, " = vm.cast.f32.ui8 "));
+      IREE_VM_ISA_EMIT_F32_REG_NAME(operand_reg);
+      IREE_VM_ISA_EMIT_OPTIONAL_VALUE_F32(regs->i32[operand_reg]);
+      break;
+    }
+    IREE_VM_ISA_EMIT_OP(EXT_F32, CastF32UI16) {
+      IREE_VM_ISA_DECODE_OPERAND_F32(operand_reg);
+      IREE_VM_ISA_DECODE_RESULT_I32(result_reg);
+      IREE_VM_ISA_EMIT_I32_REG_NAME(result_reg);
+      IREE_RETURN_IF_ERROR(
+          iree_string_builder_append_cstring(b, " = vm.cast.f32.ui16 "));
+      IREE_VM_ISA_EMIT_F32_REG_NAME(operand_reg);
+      IREE_VM_ISA_EMIT_OPTIONAL_VALUE_F32(regs->i32[operand_reg]);
+      break;
+    }
     IREE_VM_ISA_EMIT_OP(EXT_F32, CastF32UI32) {
       IREE_VM_ISA_DECODE_OPERAND_F32(operand_reg);
       IREE_VM_ISA_DECODE_RESULT_I32(result_reg);

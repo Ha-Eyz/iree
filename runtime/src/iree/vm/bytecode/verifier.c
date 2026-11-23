@@ -1913,6 +1913,14 @@ static iree_status_t iree_vm_bytecode_function_verify_bytecode_op(
       IREE_VM_ISA_DECODE_OPERAND_F32(operand);
       IREE_VM_ISA_DECODE_RESULT_I64(result);
     });
+    IREE_VM_ISA_VERIFY_OP(EXT_F32, CastF32UI8, {
+      IREE_VM_ISA_DECODE_OPERAND_F32(operand);
+      IREE_VM_ISA_DECODE_RESULT_I32(result);
+    });
+    IREE_VM_ISA_VERIFY_OP(EXT_F32, CastF32UI16, {
+      IREE_VM_ISA_DECODE_OPERAND_F32(operand);
+      IREE_VM_ISA_DECODE_RESULT_I32(result);
+    });
     IREE_VM_ISA_VERIFY_OP(EXT_F32, CastF32UI32, {
       IREE_VM_ISA_DECODE_OPERAND_F32(operand);
       IREE_VM_ISA_DECODE_RESULT_I32(result);

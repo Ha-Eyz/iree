@@ -50,6 +50,8 @@ def VM_OPC_CastUI32F32           : VM_OPC<0x15, "CastUI32F32">;
 def VM_OPC_CastUI64F32           : VM_OPC<0x3D, "CastUI64F32">;
 def VM_OPC_CastF32SI32           : VM_OPC<0x16, "CastF32SI32">;
 def VM_OPC_CastF32SI64           : VM_OPC<0x3A, "CastF32SI64">;
+def VM_OPC_CastF32UI8           : VM_OPC<0x40, "CastF32UI8">;
+def VM_OPC_CastF32UI16           : VM_OPC<0x3F, "CastF32UI16">;
 def VM_OPC_CastF32UI32           : VM_OPC<0x17, "CastF32UI32">;
 def VM_OPC_CastF32UI64           : VM_OPC<0x3B, "CastF32UI64">;
 def VM_OPC_BitcastI32F32         : VM_OPC<0x18, "BitcastI32F32">;
@@ -128,6 +130,8 @@ def VM_ExtF32OpcodeAttr :
     VM_OPC_CastUI32F32,
     VM_OPC_CastF32SI32,
     VM_OPC_CastF32SI64,
+    VM_OPC_CastF32UI8,
+    VM_OPC_CastF32UI16,
     VM_OPC_CastF32UI32,
     VM_OPC_CastF32UI64,
     VM_OPC_BitcastI32F32,

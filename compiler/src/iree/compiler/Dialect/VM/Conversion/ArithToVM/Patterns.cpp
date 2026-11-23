@@ -803,6 +803,16 @@ struct FPToUIOpConversion : OpConversionPattern<arith::FPToUIOp> {
     auto dstType = srcOp.getResult().getType();
     auto resultType = getTypeConverter()->convertType(dstType);
     if (srcType.isF32()) {
+      if (dstType.isSignlessInteger(8) || dstType.isUnsignedInteger(8)) {
+        rewriter.replaceOpWithNewOp<IREE::VM::CastF32UI8Op>(srcOp, resultType,
+                                                            adaptor.getIn());
+        return success();
+      }
+      if (dstType.isSignlessInteger(16) || dstType.isUnsignedInteger(16)) {
+        rewriter.replaceOpWithNewOp<IREE::VM::CastF32UI16Op>(srcOp, resultType,
+                                                             adaptor.getIn());
+        return success();
+      }
       if (dstType.isSignlessInteger(32) || dstType.isUnsignedInteger(32)) {
         rewriter.replaceOpWithNewOp<IREE::VM::CastF32UI32Op>(srcOp, resultType,
                                                              adaptor.getIn());

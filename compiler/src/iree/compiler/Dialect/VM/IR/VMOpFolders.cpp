@@ -1784,6 +1784,30 @@ OpFoldResult CastF32SI64Op::fold(FoldAdaptor operands) {
       });
 }
 
+OpFoldResult CastF32UI8Op::fold(FoldAdaptor operands) {
+  return constFoldCastOp<FloatAttr, IntegerAttr>(
+      IntegerType::get(getContext(), 8), operands.getOperand(),
+      [&](const APFloat &a) {
+        bool isExact = false;
+        llvm::APSInt b(/*BitWidth=*/8, /*isUnsigned=*/false);
+        a.convertToInteger(b, APFloat::rmNearestTiesToAway, &isExact);
+        b.setIsUnsigned(true);
+        return b.zext(32);
+      });
+}
+
+OpFoldResult CastF32UI16Op::fold(FoldAdaptor operands) {
+  return constFoldCastOp<FloatAttr, IntegerAttr>(
+      IntegerType::get(getContext(), 16), operands.getOperand(),
+      [&](const APFloat &a) {
+        bool isExact = false;
+        llvm::APSInt b(/*BitWidth=*/16, /*isUnsigned=*/false);
+        a.convertToInteger(b, APFloat::rmNearestTiesToAway, &isExact);
+        b.setIsUnsigned(true);
+        return b.zext(32);
+      });
+}
+
 OpFoldResult CastF32UI32Op::fold(FoldAdaptor operands) {
   return constFoldCastOp<FloatAttr, IntegerAttr>(
       IntegerType::get(getContext(), 32), operands.getOperand(),

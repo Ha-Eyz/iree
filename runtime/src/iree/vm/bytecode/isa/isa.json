@@ -3312,6 +3312,20 @@
       "encoding": "f32_binary"
     },
     {
+      "opcode_set": "ext_f32",
+      "opcode": 63,
+      "symbol": "CastF32UI16",
+      "mnemonic": "cast.f32.ui16",
+      "encoding": "f32_to_i32_conversion"
+    },
+    {
+      "opcode_set": "ext_f32",
+      "opcode": 64,
+      "symbol": "CastF32UI8",
+      "mnemonic": "cast.f32.ui8",
+      "encoding": "f32_to_i32_conversion"
+    },
+    {
       "opcode_set": "ext_f64",
       "opcode": 0,
       "symbol": "GlobalLoadF64",

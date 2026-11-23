@@ -3422,6 +3422,21 @@ def VM_CastF32SI64Op :
   let hasFolder = 1;
 }
 
+def VM_CastF32UI8Op :
+    VM_ConversionOp<F32, I32, "cast.f32.ui8", VM_OPC_CastF32UI8,
+                    [VM_ExtF32]> {
+  let summary = [{Cast from an float-point value to an unsigned 8-bit integer.}];
+  let hasFolder = 1;
+}
+
+def VM_CastF32UI16Op :
+    VM_ConversionOp<F32, I32, "cast.f32.ui16", VM_OPC_CastF32UI16,
+                    [VM_ExtF32]> {
+  let summary = [{Cast from an float-point value to an unsigned 16-bit integer.}];
+  let hasFolder = 1;
+}
+
+
 def VM_CastF32UI32Op :
     VM_ConversionOp<F32, I32, "cast.f32.ui32", VM_OPC_CastF32UI32,
                     [VM_ExtF32]> {
